@@ -116,7 +116,7 @@ app.post('/generate-stream-token', async (req, res) => {
   try {
     // Log the userId right before attempting to create the token
     console.log(`Attempting to create token for userId: ${userId}`);
-    const token = client.createToken(String(userId));
+    const token = client.createToken(userId);
     console.log('Token created successfully.');
     res.status(200).json({ token });
   } catch (error) {

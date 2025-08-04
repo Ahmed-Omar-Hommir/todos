@@ -37,7 +37,7 @@ const apiSecret = 'dhk6cn5ux44n9r5ac525dfb3h537ryg8yzcafrzmnx3h6njxngpaazts25hre
 
 // Log to confirm the client is being initialized
 console.log('Initializing StreamChat client...');
-const client = new StreamChat.getInstance(apiKey, apiSecret);
+const client = new StreamChat(apiKey, apiSecret);
 console.log('StreamChat client initialized.');
 
 // --- API Endpoints ---
@@ -116,7 +116,7 @@ app.post('/generate-stream-token', async (req, res) => {
   try {
     // Log the userId right before attempting to create the token
     console.log(`Attempting to create token for userId: ${userId}`);
-    const token = client.createToken(String(userId));
+    const token = client.createToken(userId);
     console.log('Token created successfully.');
     res.status(200).json({ token });
   } catch (error) {
